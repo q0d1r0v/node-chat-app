@@ -2,7 +2,7 @@
 const Socket = (socket) =>  {
     console.log("Socket user is connected!")
 
-    socket.on('some-route', (data) => {
+    socket.on('send-message', (data) => {
         console.log(data)
     })
 

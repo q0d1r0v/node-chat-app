@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken')
 
 // auth middleware
 const AuthMiddleware = async (req, res, next) => {
-    
+
     // operations
     if (req.url === "/auth/login" || req.url === "/auth/register") {
         next()

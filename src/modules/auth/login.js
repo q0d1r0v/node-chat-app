@@ -6,8 +6,11 @@ const jwt = require('jsonwebtoken')
 // Login
 const Login = async (req, res) => {
     // data
-    const {username, password} = req.body
+    let {username, password} = req.body
     const users = await database.query(`SELECT * from users WHERE username = '${username}'`)
+
+    username = username.split("'").join('"')
+    password = password.split("'").join('"')
 
     // operations
     if(users.rows.length > 0) {
