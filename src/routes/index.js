@@ -11,16 +11,16 @@ const Login = require('../modules/auth/login')
 
 // index route
 router.get('/', (req, res) => {
-    console.log("Hello world")
+    console.log("Docs route")
 
-    res.send("Hello world")
+    res.send("Docs route")
 })
 
 // register route
-router.use('/auth/register', Register)
+router.post('/auth/register', Register)
 
 // login route
-router.use('/auth/login', Login)
+router.post('/auth/login', Login)
 
 
 module.exports = router
