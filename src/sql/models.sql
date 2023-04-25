@@ -9,7 +9,7 @@ CREATE TABLE users(
 );
 
 CREATE TABLE messages(
-    id BIGINT PRIMARY KEY,
+    id SERIAL PRIMARY KEY,
     from_user TEXT,
     to_user TEXT,
     message TEXT,
