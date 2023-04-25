@@ -9,9 +9,9 @@ const database = require('../../db/database')
 const Register = async (req, res) => {
     // data
     let { full_name, username, password } = req.body
-    full_name = full_name.split("'").join('"')
-    username = username.split("'").join('"')
-    password = password.split("'").join('"')
+    // full_name = full_name.split("'").join('"')
+    // username = username.split("'").join('"')
+    // password = password.split("'").join('"')
 
     // operations
     if (full_name && username && password) {

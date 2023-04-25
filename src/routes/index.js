@@ -8,14 +8,11 @@ const router = express()
 // modules
 const Register = require('../modules/auth/register')
 const Login = require('../modules/auth/login')
+const IndexRoute = require('../modules/index/index')
 const GetUsers = require('../modules/users/get-users')
 
 // index route
-router.get('/', (req, res) => {
-    console.log("Docs route")
-
-    res.send("Docs route")
-})
+router.get('/', IndexRoute)
 
 // register route
 router.post('/auth/register', Register)

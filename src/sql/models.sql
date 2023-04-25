@@ -15,3 +15,10 @@ CREATE TABLE messages(
     message TEXT,
     date TEXT
 );
+
+CREATE TABLE deleted_messages(
+    id SERIAL PRIMARY KEY,
+    deleted_user_id BIGINT NOT NULL,
+    deleted_message TEXT NOT NULL,
+    date TEXT NOT NULL
+)

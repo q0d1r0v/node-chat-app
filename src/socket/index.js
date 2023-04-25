@@ -33,9 +33,6 @@ const Socket = (socket) => {
                 messages: messages.rows
             })
         } else {
-            socket.broadcast.emit('return-send-message', {
-                message: 'Don\'t have all data'
-            })
             socket.emit('return-send-message', {
                 message: 'Don\'t have all data'
             })
@@ -54,6 +51,34 @@ const Socket = (socket) => {
 
             socket.emit('return-send-message', {
                 message: 'Don\'t have all data'
+            })
+        }
+    })
+
+    socket.on('edit-message', async (data) => {
+        let {message_id, message} = data
+
+        // operations
+        message = message.split("'").join('"')
+
+        if(message_id && message) {
+            await database.query(`UPDATE messages SET message = '${message}' WHERE id = '${message_id}'`)
+        } else {
+            socket.emit('return-update-message', {
+                message: "Don't have all data!"
+            })
+        }
+    })
+
+    socket.on('delete-message', async (data) => {
+        const {user_id, message_id, message} = data
+
+        if(user_id, message_id, message) {
+            await database.query(`INSERT INTO deleted_messages(deleted_user_id, deleted_message, date) VALUES ('${user_id}', '${message}', '${moment().format()}')`)
+            await database.query(`DELETE FROM messages WHERE id = '${message_id}'`)
+        } else {
+            socket.emit('return-delete-message', {
+                message: "Don't have all data!"
             })
         }
     })
