@@ -21,4 +21,4 @@ CREATE TABLE deleted_messages(
     deleted_user_id BIGINT NOT NULL,
     deleted_message TEXT NOT NULL,
     date TEXT NOT NULL
-)
+);
